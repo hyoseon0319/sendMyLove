@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest</title>
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/proxy/a8dx2QkTXDLqURG96gZ8VxeJyCYDfaunw6tM6W95Mnc4HMKUNaei0r00-1ZyWAgbJz5ii-PDPU-VXI0O0C3ioMxKRkBLkoE5IJ3dt0x1IX2hM9N1FBs"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/card.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/jquery.imagesloaded.js"></script>
+    <script src="js/jquery.wookmark.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/placeholders.min.js"></script>
+    
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+   </script>
+   
+
+</head>
+<body>
+    <header>
+
+        <nav>
+            <div class="logo-page">
+                <figure><img src="resources/images/logo.svg" alt="logo-page"></figure>
+            </div>
+            <div class="div-btn-options" href="#0" data-signin="login">
+                <a href="#" class="home active">Login</a>
+                <a href="logoutUser" class="followers">Logout</a>
+            </div>
+            <div class="div-search">
+                <span>
+                    <figure><img src="./resources/images/search.png" alt="search"></figure>
+                </span>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="div-icon-options">
+                <a href="board.html" class="notification">
+                    <figure><img src="./resources/images/plus1.png" alt="notifications"></figure>
+                </a>
+                <a href="chat.html" class="messages">
+                    <figure><img src="./resources/images/message.png" alt="messages"></figure>
+                </a>
+                <!-- <a href="#" class="user">
+                    <figure><img src="https://i.pinimg.com/75x75_RS/20/3e/ed/203eed63313370a6d6badfca08eed57c.jpg" alt="user"></figure>
+                </a> -->
+            </div>
+        </nav>
+    </header>
+    <class class="cd-signin-modal js-signin-modal">
+        <div class="cd-signin-modal__container">
+          <ul
+          class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger"
+          >
+  
+          </ul>
+  
+          <div class="cd-signin-modal__block js-signin-modal-block"
+          data-type="login">
+          <!-- log in form -->
+            <form class="cd-signin-modal__form">
+                <p class="cd-signin-modal__fieldset">
+                    로그인
+                    <label
+                    class="cd-signin-modal__label cd-signin-modal__label--Text cd-signin-modal__label--image-replace"
+                    for="signin-ID"
+                    >ID</label
+                >
+                <input
+                class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+                id="signin-text"
+                  type="text"
+                  placeholder="Id"
+                  />
+                  <span class="cd-signin-modal__error">Error message here!</span>
+              </p>
+              
+              <p class="cd-signin-modal__fieldset">
+                  <label
+                  class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace"
+                  for="signin-password"
+                  >Password</label
+                  >
+                <input
+                class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+                id="signin-password"
+                type="text"
+                placeholder="Password"
+                />
+                <a
+                  href="#0"
+                  class="cd-signin-modal__hide-password js-hide-password"
+                  >Hide</a
+                >
+                <span class="cd-signin-modal__error">Error message here!</span>
+              </p>
+              
+              <p class="cd-signin-modal__fieldset">
+                <input
+                type="checkbox"
+                id="remember-me"
+                  checked
+                  class="cd-signin-modal__input"
+                  />
+                <label for="remember-me">ID 기억하기</label>
+              </p>
+              
+              <p class="cd-signin-modal__fieldset">
+                <input
+                class="cd-signin-modal__input cd-signin-modal__input--full-width"
+                type="submit"
+                value="Login"
+                />
+              </p>
+            </form>
+  
+            <p class="cd-signin-modal__bottom-message js-signin-modal-trigger">
+                <a href="register.html">회원가입</a>
+            </p>
+          </div>
+  
+          <a href="#0" class="cd-signin-modal__close js-close">Close</a>
+      </div>
+      
+          </class>
+    <section class="container">
+        <div id="board" class="container">
+            <div v-for="post in posts" class="card">
+                <div v-if="post.gender =='남성'">
+                    <img src="resources/images/male.svg" class="img-circle" height="55" width="55"
+                        alt="Avatar">
+                </div>
+                <div v-else>
+                    <img src="resources/images/female.svg" class="img-circle" height="55"
+                        width="55" alt="Avatar">
+                </div>
+                <div class="info">
+                    <h2>{{post.finddate}}</h2>
+                    <div class="title">{{post.loc}}</div>
+                    <div class="desc">{{post.detail}}</div>
+                </div>
+    
+                <div class="actions">
+                    <button class="trade">쪽지 보내기</button>
+                    <div class="overlay"></div>
+                    <div class="heart-container">
+                        <div class="heart"></div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+
+    </section>
+    
+</body>
+
+<script>
+
+var $ = jQuery.noConflict();
+	$(function() {
+		$('#activator').click(function() {
+			$('#box').animate({
+				'top' : '0px'
+			}, 500);
+		});
+		$('#boxclose').click(function() {
+			$('#box').animate({
+				'top' : '-700px'
+			}, 500);
+		});
+	});
+	$(document).ready(function() {
+		//Hide (Collapse) the toggle containers on load
+		$(".toggle_container").hide();
+		//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+		$(".trigger").click(function() {
+			$(this).toggleClass("active").next().slideToggle("slow");
+			return false; //Prevent the browser jump to the link anchor
+		});
+
+	});
+</script>
+<script>
+let v1 = new Vue({
+			el: '#board',
+			data: {
+				posts: []
+			},
+			mounted () {
+				axios.get('/selectAllPosts').then(res=>this.posts=res.data)	
+			}
+		});
+</script>
+</html>

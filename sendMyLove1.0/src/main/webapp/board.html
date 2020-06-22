@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="css/board.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+</head>
+
+<body>
+<div class="container">
+        <form action="insertBoard" method="POST">
+            <h1>내 사람을 찾습니다.</h1>
+            <div class="form-radio">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="gender" value="남성" checked="checked" /><i class="helper"></i>남성
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender" value="여성"/><i class="helper"></i>여성
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <select name="sido" id="sido">
+                    <option value="">-시도-</option>
+                </select>
+                <select name="gugun" id="gugun">
+                    <option value="">-구군-</option>
+                </select>
+                <select name="dong" id="dong">
+                    <option value="">-동-</option>
+                </select>
+
+                <label for="select" class="control-label">목격 장소</label><i class="bar"></i>
+            </div>
+
+
+            <div class="form-group">
+                <input type="text" name="loc" required="required" />
+                <label for="input" class="control-label">자세한 위치 정보</label><i class="bar"></i>
+            </div>
+
+            <div class="form-group">
+                <input name="date" class="form-group" type="date" placeholder="Date" required name="date" value="2020-01-01T00:00">
+                <label for="input" class="control-label">목격 시간</label><i class="bar"></i>
+            </div>
+
+            <div class="form-group">
+                <input name="detailtime" type="text" required="required" />
+                <label for="input" class="control-label">상세한 시간</label><i class="bar"></i>
+            </div>
+
+
+            <div class="form-group">
+                <textarea required="required" name="detail"></textarea>
+                <label for="textarea" class="control-label">인상착의</label><i class="bar"></i>
+            </div>
+            <div class="button-container">
+                <button type="button" class="button" onclick="location.href='insertBoard'"><span>작성</span></button>
+            </div>
+        </form>
+    </div>
+
+</body>
+<script src="js/sojaeji.js"></script>
+
+<script>
+    sojaeji('서울', '강남구', '신사동');
+</script>
+
+</html>
